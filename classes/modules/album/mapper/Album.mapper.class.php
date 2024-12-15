@@ -14,19 +14,20 @@ class PluginLsgallery_ModuleAlbum_MapperAlbum extends Mapper
      */
     public function CreateAlbum($oAlbum)
     {
-        $sql = "INSERT INTO
+        $sql = "INSERT IGNORE INTO
                     " . Config::Get('db.table.lsgallery.album') . "
                 (
                  album_user_id,
                  album_title,
                  album_description,
                  album_type,
-                 album_date_add
+                 album_date_add,
+                 album_date_edit
                 )
                 VALUES
-                    (?d, ?, ?, ?, ?)
+                    (?d, ?, ?, ?, ?, ?)
 		";
-        if ($iId = $this->oDb->query($sql, $oAlbum->getUserId(), $oAlbum->getTitle(), $oAlbum->getDescription(), $oAlbum->getType(), $oAlbum->getDateAdd())) {
+        if ($iId = $this->oDb->query($sql, $oAlbum->getUserId(), $oAlbum->getTitle(), $oAlbum->getDescription(), $oAlbum->getType(), $oAlbum->getDateAdd(), $oAlbum->getDateEdit())) {
             return $iId;
         }
         return false;
