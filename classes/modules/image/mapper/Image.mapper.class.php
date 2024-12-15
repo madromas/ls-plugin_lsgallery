@@ -30,7 +30,7 @@ class PluginLsgallery_ModuleImage_MapperImage extends Mapper
     public function AddImage($oImage)
     {
         $sql
-            = "INSERT INTO
+            = "INSERT IGNORE INTO
                     " . Config::Get('db.table.lsgallery.image') . "
                 (
                  user_id,
