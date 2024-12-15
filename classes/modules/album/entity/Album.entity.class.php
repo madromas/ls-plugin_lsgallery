@@ -239,7 +239,7 @@ class PluginLsgallery_ModuleAlbum_EntityAlbum extends Entity
     public function setDateAdd($data = null)
     {
         if (is_null($data)) {
-            $data = date('Y-m-d H::i:s');
+            $data = date('Y-m-d H:i:s');
         }
         $this->_aData['album_date_add'] = $data;
     }
