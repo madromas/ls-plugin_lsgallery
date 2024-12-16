@@ -339,7 +339,7 @@ class PluginLsgallery_ModuleImage_EntityImage extends Entity
     public function setDateAdd($data = null)
     {
         if (is_null($data)) {
-            $data = date('Y-m-d H::i:s');
+            $data = date('Y-m-d H:i:s');
         }
         $this->_aData['image_date_add'] = $data;
     }
